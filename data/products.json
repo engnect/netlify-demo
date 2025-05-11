@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Adidas Grand Court",
+      "price": 1781.99,
+      "image": "https://placehold.co/150",
+      "description": "Spor ayakkabı, günlük kullanım için uygundur."
+    },
+    {
+      "id": 2,
+      "title": "DrFicor Roll-on",
+      "price": 175,
+      "image": "https://placehold.co/150",
+      "description": "Aşırı terleme için etkili roll-on."
+    },
+    {
+      "id": 3,
+      "title": "Bargello Parfüm",
+      "price": 250,
+      "image": "https://placehold.co/150",
+      "description": "Erkek parfüm, kalıcı kokusu ile öne çıkar."
+    }
+  ]
+  
