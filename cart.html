@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sepet</title>
+</head>
+<body>
+  <h1>Sepetiniz</h1>
+  <div id="cart-container"></div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById("cart-container");
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p>Sepetiniz boş.</p>";
+    } else {
+      cart.forEach(item => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+          <p><strong>${item.name}</strong> - ${item.price}₺ (${item.quantity} adet)</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
