@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Netlify Demo</title>
+  <meta charset="UTF-8">
+  <title>Demo Market</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Hello Netlify</h1>
-    </header>
-    <main>
-        <p>This is a basic website deployed on Netlify.</p>
-        <button id="clickMe">Click Me</button>
-    </main>
-    <script>
-        document.getElementById('clickMe').onclick = () => {
-            alert('Congrats! Success');
-        }
-    </script>
+  <!-- Header -->
+  <header>
+    <div class="logo">🛍️ DemoMarket</div>
+    <input type="text" placeholder="Ürün, kategori veya marka ara...">
+    <nav>
+      <a href="#">Giriş Yap</a>
+      <a href="#">Favoriler</a>
+      <a href="#">Sepetim</a>
+    </nav>
+  </header>
+
+  <!-- Kategori Menüsü -->
+  <section class="categories">
+    <div>Kadın</div>
+    <div>Erkek</div>
+    <div>Çocuk</div>
+    <div>Süpermarket</div>
+    <div>Kozmetik</div>
+    <!-- İstersen simgeler de ekleyebiliriz -->
+  </section>
+
+  <!-- Ürün Listesi -->
+  <main class="product-list">
+    <div class="product-card">
+      <img src="https://placehold.co/150" alt="Ürün">
+      <h4>Adidas Ayakkabı</h4>
+      <p>1.799 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+    <div class="product-card">
+      <img src="https://placehold.co/150" alt="Ürün">
+      <h4>DrFicor Roll-on</h4>
+      <p>175 TL</p>
+      <button>Sepete Ekle</button>
+    </div>
+    <!-- Devamı eklenecek -->
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DemoMarket</p>
+  </footer>
 </body>
 </html>
