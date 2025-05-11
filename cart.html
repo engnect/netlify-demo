@@ -9,19 +9,43 @@
 
   <script>
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const container = document.getElementById("cart-container");
+const container = document.getElementById("cart-container");
 
-    if (cart.length === 0) {
-      container.innerHTML = "<p>Sepetiniz boş.</p>";
-    } else {
-      cart.forEach(item => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-          <p><strong>${item.name}</strong> - ${item.price}₺ (${item.quantity} adet)</p>
-        `;
-        container.appendChild(div);
-      });
-    }
+function renderCart() {
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Sepetiniz boş.</p>";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <p><strong>${item.name}</strong> - ${item.price}₺ (${item.quantity} adet)</p>
+      <button onclick="removeFromCart(${index})">Sil</button>
+    `;
+    container.appendChild(div);
+  });
+
+  const totalDiv = document.createElement("div");
+  totalDiv.innerHTML = `<hr><p><strong>Toplam Tutar:</strong> ${total}₺</p>`;
+  container.appendChild(totalDiv);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1); // Sepetten o sıradaki ürünü sil
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart(); // Sepeti tekrar çiz
+}
+
+// Sayfa yüklendiğinde çalıştır
+renderCart();
   </script>
 </body>
 </html>
