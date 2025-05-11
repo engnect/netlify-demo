@@ -26,7 +26,16 @@
     <div>Kozmetik</div>
     <!-- İstersen simgeler de ekleyebiliriz -->
   </section>    
-
+  <section class="filters">
+    <input type="text" id="searchInput" placeholder="Ürün ara..." oninput="filterProducts()">
+    
+    <select id="categoryFilter" onchange="filterProducts()">
+      <option value="">Tümü</option>
+      <option value="Giyim">Giyim</option>
+      <option value="Kozmetik">Kozmetik</option>
+    </select>
+  </section>
+  
   <!-- Ürün Listesi -->
   <main class="product-list">
     <div class="product-card">

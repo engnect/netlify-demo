@@ -1,3 +1,39 @@
+const products = [
+    { id: 1, name: "Adidas Ayakkabı", price: 1799, category: "Giyim" },
+    { id: 2, name: "DrFicor Roll-on", price: 175, category: "Kozmetik" },
+    { id: 3, name: "Tişört", price: 249, category: "Giyim" }
+  ];
+function renderProducts(filteredProducts = products) {
+    const container = document.querySelector(".product-list");
+    container.innerHTML = "";
+  
+    filteredProducts.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "product-card";
+      div.innerHTML = `
+        <img src="https://placehold.co/150" alt="${p.name}">
+        <h4>${p.name}</h4>
+        <p>${p.price} TL</p>
+        <button onclick="addToCart(${p.id}, '${p.name}', ${p.price})">Sepete Ekle</button>
+      `;
+      container.appendChild(div);
+    });
+}
+document.addEventListener("DOMContentLoaded", () => renderProducts());
+
+function filterProducts() {
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    const category = document.getElementById("categoryFilter").value;
+  
+    const filtered = products.filter(p => {
+      const matchName = p.name.toLowerCase().includes(search);
+      const matchCategory = category ? p.category === category : true;
+      return matchName && matchCategory;
+    });
+  
+    renderProducts(filtered);
+  }
+  
 document.addEventListener("DOMContentLoaded", () => {
     const productList = document.querySelector(".product-list");
   
